@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vbt_demo_app/core/init/theme/light_theme.dart';
+import 'package:vbt_demo_app/feature/home/view_model/home_view_model.dart';
+import 'package:vbt_demo_app/feature/menu/view/menu_view.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Provider(
+      create: (context) => HomeViewModel(),
+      child: MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      title: 'VBT DEMO APP',
+      home: MenuView(),
     );
   }
 }
