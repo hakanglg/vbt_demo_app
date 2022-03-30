@@ -8,7 +8,7 @@ class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;
 abstract class _HomeViewModelBase with Store {
   @observable
   ObservableList<UserModel> userList = ObservableList<UserModel>.of([
-    UserModel(name: "Tesla", imageUrl: "imageUrl"),
-    UserModel(name: "Edison", imageUrl: "imageUrl"),
+    UserModel(name: "Tesla", imageUrl: "assets/images/tesla_photo.png"),
+    UserModel(name: "Edison", imageUrl: "assets/images/edison_photo.jpg"),
   ]);
 }

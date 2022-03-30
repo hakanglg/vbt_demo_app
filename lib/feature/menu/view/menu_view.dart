@@ -10,10 +10,11 @@ class MenuView extends StatelessWidget with BaseState {
   final _MenuStringValues values = _MenuStringValues();
   final MenuViewModel _model = MenuViewModel();
 
+  MenuView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Center(child: playButtonSection(context)),
     );
   }
@@ -21,7 +22,7 @@ class MenuView extends StatelessWidget with BaseState {
   CustomTextButton playButtonSection(BuildContext context) {
     return CustomTextButton(
         text: values.title,
-        textStyle: context.textTheme.headline3!.copyWith(color: Colors.white),
+        textStyle: context.textTheme.headline3,
         function: () => _model.goHome(context));
   }
 }
