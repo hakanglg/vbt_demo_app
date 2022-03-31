@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
 import 'package:vbt_demo_app/core/constants/color/color_constants.dart';
-import 'package:vbt_demo_app/core/init/theme/my_theme.dart';
 import '../model/home_model.dart';
 part 'home_view_model.g.dart';
 
@@ -15,7 +14,7 @@ abstract class _HomeViewModelBase with Store {
   int timeLeft = 15;
 
   @observable
-  MaterialColor backgroundColor = ColorConstants.instance.red;
+  MaterialColor backgroundColor = ColorConstants.instance.green;
 
   @action
   void init() {
@@ -23,12 +22,12 @@ abstract class _HomeViewModelBase with Store {
   }
 
   @action
-  void startCountdown() {
+  startCountdown() {
     Timer.periodic(Duration(seconds: 1), (timer) async {
       if (timeLeft > 0) {
         timeLeft--;
-      } else if (timeLeft <= 13) {
-        backgroundColor = await ColorConstants.instance.green;
+      } else if (timeLeft == 13) {
+        backgroundColor = ColorConstants.instance.red;
       } else {
         timer.cancel();
       }

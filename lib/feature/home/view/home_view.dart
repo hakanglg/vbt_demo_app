@@ -8,8 +8,13 @@ import '../view_model/home_view_model.dart';
 
 part "home_string_values.dart";
 
-class HomeView extends StatelessWidget with BaseState {
-// TODO: Geri Sayım eklenecek
+class HomeView extends StatefulWidget {
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> with BaseState {
+// TODO: background renk değişme eklenecek
   final _HomeStringValues values = _HomeStringValues();
 
   final HomeViewModel _model = HomeViewModel();
@@ -17,6 +22,7 @@ class HomeView extends StatelessWidget with BaseState {
   @override
   Widget build(BuildContext context) {
     _model.init();
+
     return Scaffold(
       backgroundColor: _model.backgroundColor,
       appBar: AppBar(
