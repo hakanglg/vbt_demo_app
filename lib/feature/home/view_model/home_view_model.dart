@@ -1,9 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
 import 'package:vbt_demo_app/core/constants/color/color_constants.dart';
-
 import '../model/home_model.dart';
 part 'home_view_model.g.dart';
 
@@ -19,6 +17,7 @@ abstract class _HomeViewModelBase with Store {
   @observable
   String title = "Home";
 
+  // This function is showing the dialog and changing the title text
   @action
   Future<void> showDialogAndChangeTitle(BuildContext context) async {
     this.title = await dummyText;
