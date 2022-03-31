@@ -4,13 +4,13 @@ import 'package:kartal/kartal.dart';
 import '../../widgets/button/dropdown_button.dart';
 import '../../../core/components/column/user_profile.dart';
 import '../view_model/home_view_model.dart';
+
 part "home_string_values.dart";
 
 class HomeView extends StatelessWidget {
 // TODO: Geri Sayım eklenecek
-
-// TODO: CODEREVIEW: Bu kısımda kullanılan kodların kullanımını kontrol et.
   final _HomeStringValues values = _HomeStringValues();
+
   final HomeViewModel _model = HomeViewModel();
 
   @override

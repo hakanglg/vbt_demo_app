@@ -5,6 +5,8 @@ import 'package:vbt_demo_app/core/init/theme/my_theme.dart';
 import 'package:vbt_demo_app/feature/home/view_model/home_view_model.dart';
 import 'package:vbt_demo_app/feature/menu/view/menu_view.dart';
 
+import 'feature/widgets/timer/countdown_timer.dart';
+
 void main() => runApp(Provider(
       create: (context) => HomeViewModel(),
       child: ScreenUtilInit(
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: myTheme,
       title: 'VBT DEMO APP',
-      home: MenuView(),
+      home: CountdownTimer(),
     );
   }
 }
