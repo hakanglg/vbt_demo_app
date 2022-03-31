@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:vbt_demo_app/core/init/theme/light_theme.dart';
+import 'package:vbt_demo_app/core/init/theme/my_theme.dart';
 import 'package:vbt_demo_app/feature/home/view_model/home_view_model.dart';
 import 'package:vbt_demo_app/feature/menu/view/menu_view.dart';
 

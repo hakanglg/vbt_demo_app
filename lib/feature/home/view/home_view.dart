@@ -1,12 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
 import '../../../core/components/column/user_profile.dart';
 import '../view_model/home_view_model.dart';
+part "home_string_values.dart";
 
 class HomeView extends StatelessWidget {
-// TODO: Home string values eklenecek
 // TODO: Dropdown menu eklenecek
 // TODO: Geri Sayım eklenecek
 
@@ -54,7 +52,6 @@ class HomeView extends StatelessWidget {
                   name: _model.userList[1].name),
             ],
           )),
-      backgroundColor: Colors.black,
       body: Center(
         child: Text(
           'Home',
