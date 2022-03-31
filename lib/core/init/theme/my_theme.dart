@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vbt_demo_app/core/constants/color/color_constants.dart';
 
+import '../../../feature/home/view_model/home_view_model.dart';
+
 final ThemeData myTheme = ThemeData(
     scaffoldBackgroundColor: ColorConstants.instance.green,
     appBarTheme:

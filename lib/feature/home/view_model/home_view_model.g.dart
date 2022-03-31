@@ -9,6 +9,37 @@ part of 'home_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$HomeViewModel on _HomeViewModelBase, Store {
+  final _$timeLeftAtom = Atom(name: '_HomeViewModelBase.timeLeft');
+
+  @override
+  int get timeLeft {
+    _$timeLeftAtom.reportRead();
+    return super.timeLeft;
+  }
+
+  @override
+  set timeLeft(int value) {
+    _$timeLeftAtom.reportWrite(value, super.timeLeft, () {
+      super.timeLeft = value;
+    });
+  }
+
+  final _$backgroundColorAtom =
+      Atom(name: '_HomeViewModelBase.backgroundColor');
+
+  @override
+  MaterialColor get backgroundColor {
+    _$backgroundColorAtom.reportRead();
+    return super.backgroundColor;
+  }
+
+  @override
+  set backgroundColor(MaterialColor value) {
+    _$backgroundColorAtom.reportWrite(value, super.backgroundColor, () {
+      super.backgroundColor = value;
+    });
+  }
+
   final _$userListAtom = Atom(name: '_HomeViewModelBase.userList');
 
   @override
@@ -48,9 +79,36 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
         .run(() => super.showDialogAndChangeTitle(context));
   }
 
+  final _$_HomeViewModelBaseActionController =
+      ActionController(name: '_HomeViewModelBase');
+
+  @override
+  void init() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.init');
+    try {
+      return super.init();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void startCountdown() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.startCountdown');
+    try {
+      return super.startCountdown();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
+timeLeft: ${timeLeft},
+backgroundColor: ${backgroundColor},
 userList: ${userList},
 title: ${title}
     ''';

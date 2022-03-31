@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_demo_app/core/base/state/base_state.dart';
 import '../../widgets/button/dropdown_button.dart';
 import '../../../core/components/column/user_profile.dart';
 import '../view_model/home_view_model.dart';
 
 part "home_string_values.dart";
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatelessWidget with BaseState {
 // TODO: Geri Sayım eklenecek
   final _HomeStringValues values = _HomeStringValues();
 
@@ -15,7 +16,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _model.init();
     return Scaffold(
+      backgroundColor: _model.backgroundColor,
       appBar: AppBar(
           toolbarHeight: context.dynamicHeight(0.15),
           leading: IconButton(
@@ -59,10 +62,12 @@ class HomeView extends StatelessWidget {
       children: [
         Text("0-0", style: context.textTheme.headline6),
         context.emptySizedHeightBoxLow,
-        Text(
-          "14:59.6",
-          style: context.textTheme.bodyText1,
-        ),
+        Observer(
+          builder: (context) => Text(
+            _model.timeLeft.toString(),
+            style: context.textTheme.bodyText1,
+          ),
+        )
       ],
     );
   }

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: myTheme,
       title: 'VBT DEMO APP',
-      home: CountdownTimer(),
+      home: MenuView(),
     );
   }
 }

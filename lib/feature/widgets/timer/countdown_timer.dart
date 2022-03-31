@@ -50,7 +50,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
   }
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (_) => addTime());
+    timer = Timer.periodic(const Duration(seconds: 1), (_) => addTime());
   }
 
   @override
