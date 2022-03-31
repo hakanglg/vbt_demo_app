@@ -3,12 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vbt_demo_app/core/constants/color/color_constants.dart';
 
 final ThemeData myTheme = ThemeData(
-    scaffoldBackgroundColor: ColorConstants.instance.black,
+    scaffoldBackgroundColor: ColorConstants.instance.green,
     appBarTheme:
         const AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
     fontFamily: 'Press Start 2P',
     textTheme: TextTheme(
       headline3:
+          TextStyle(color: ColorConstants.instance.white, fontSize: 36.sp),
+      headline4:
           TextStyle(color: ColorConstants.instance.white, fontSize: 36.sp),
       headline6:
           TextStyle(color: ColorConstants.instance.white, fontSize: 20.sp),

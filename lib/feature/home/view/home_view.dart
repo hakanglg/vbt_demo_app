@@ -1,44 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kartal/kartal.dart';
+import '../../widgets/button/dropdown_button.dart';
 import '../../../core/components/column/user_profile.dart';
 import '../view_model/home_view_model.dart';
 part "home_string_values.dart";
 
 class HomeView extends StatelessWidget {
-// TODO: Dropdown menu eklenecek
 // TODO: Geri Sayım eklenecek
 
+// TODO: CODEREVIEW: Bu kısımda kullanılan kodların kullanımını kontrol et.
+  final _HomeStringValues values = _HomeStringValues();
   final HomeViewModel _model = HomeViewModel();
-  String dropdownValue = 'One';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: context.dynamicHeight(0.15),
           leading: IconButton(
-            icon: Icon(Icons.info),
-            onPressed: () {},
-          ),
-          actions: [
-            IconButton(
               icon: Icon(Icons.info),
-              onPressed: () {},
-            ),
-            // DropdownButton(
-            //   dropdownColor: Colors.red,
-            //   items: <String>['One', 'Two', 'Free', 'Four']
-            //       .map<DropdownMenuItem<String>>((String value) {
-            //     return DropdownMenuItem<String>(
-            //       value: dropdownValue,
-            //       child: Text(value),
-            //     );
-            //   }).toList(),
-            //   icon: const Icon(Icons.arrow_downward),
-            //   onChanged: (String? newValue) {
-            //     dropdownValue = newValue!;
-            //   },
-            // )
-          ],
+              onPressed: () => _model.showDialogAndChangeTitle(context)),
+          actions: [CustomDropdownButton()],
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,11 +35,21 @@ class HomeView extends StatelessWidget {
                   name: _model.userList[1].name),
             ],
           )),
-      body: Center(
-        child: Text(
-          'Home',
-          style: context.textTheme.headline3!.copyWith(color: Colors.white),
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+                child: Observer(
+              builder: (context) => SingleChildScrollView(
+                child: Text(
+                  _model.title,
+                  overflow: TextOverflow.fade,
+                  style: context.textTheme.headline4,
+                ),
+              ),
+            )),
+          ),
+        ],
       ),
     );
   }

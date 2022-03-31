@@ -24,10 +24,35 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
     });
   }
 
+  final _$titleAtom = Atom(name: '_HomeViewModelBase.title');
+
+  @override
+  String get title {
+    _$titleAtom.reportRead();
+    return super.title;
+  }
+
+  @override
+  set title(String value) {
+    _$titleAtom.reportWrite(value, super.title, () {
+      super.title = value;
+    });
+  }
+
+  final _$showDialogAndChangeTitleAsyncAction =
+      AsyncAction('_HomeViewModelBase.showDialogAndChangeTitle');
+
+  @override
+  Future<void> showDialogAndChangeTitle(BuildContext context) {
+    return _$showDialogAndChangeTitleAsyncAction
+        .run(() => super.showDialogAndChangeTitle(context));
+  }
+
   @override
   String toString() {
     return '''
-userList: ${userList}
+userList: ${userList},
+title: ${title}
     ''';
   }
 }

@@ -6,4 +6,6 @@ class ColorConstants {
 
   final black = Colors.black;
   final white = Colors.white;
+  final green = Colors.green;
+  final red = Colors.red;
 }
