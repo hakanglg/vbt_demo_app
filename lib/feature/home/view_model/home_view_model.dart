@@ -16,6 +16,9 @@ abstract class _HomeViewModelBase with Store {
   @observable
   MaterialColor backgroundColor = ColorConstants.instance.green;
 
+  @observable
+  bool isGreen = true;
+
   @action
   void init() {
     startCountdown();
@@ -27,7 +30,7 @@ abstract class _HomeViewModelBase with Store {
       if (timeLeft > 0) {
         timeLeft--;
       } else if (timeLeft == 13) {
-        backgroundColor = ColorConstants.instance.red;
+        isGreen = false;
       } else {
         timer.cancel();
       }
@@ -45,8 +48,8 @@ abstract class _HomeViewModelBase with Store {
 
   // This function is showing the dialog and changing the title text
   @action
-  Future<void> showDialogAndChangeTitle(BuildContext context) async {
-    this.title = await dummyText;
+  showDialogAndChangeTitle(BuildContext context) {
+    title = dummyText;
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
