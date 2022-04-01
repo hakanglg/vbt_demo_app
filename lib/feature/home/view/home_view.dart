@@ -10,27 +10,23 @@ import '../view_model/home_view_model.dart';
 
 part "home_string_values.dart";
 
-class HomeView extends StatefulWidget {
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> with BaseState {
-// TODO: background renk değişme eklenecek
+// ignore: must_be_immutable
+class HomeView extends StatelessWidget with BaseState {
   final _HomeStringValues values = _HomeStringValues();
-
   final HomeViewModel _model = HomeViewModel();
+
+  HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     _model.init();
 
-    return Scaffold(
-      backgroundColor:
-          _model.isGreen ? colorConstants.green : colorConstants.red,
-      appBar: appBarSection(context),
-      body: buildBodySection(),
-    );
+    return Observer(builder: (_) {
+      return Scaffold(
+          backgroundColor: _model.backgroundColor,
+          appBar: appBarSection(context),
+          body: buildBodySection());
+    });
   }
 
   AppBar appBarSection(BuildContext context) {
@@ -72,6 +68,9 @@ class _HomeViewState extends State<HomeView> with BaseState {
     );
   }
 
+  Text scoresText(BuildContext context) =>
+      Text("0-0", style: context.textTheme.headline6);
+
   Observer countdownTimerText() {
     return Observer(
       builder: (context) => Text(
@@ -80,9 +79,6 @@ class _HomeViewState extends State<HomeView> with BaseState {
       ),
     );
   }
-
-  Text scoresText(BuildContext context) =>
-      Text("0-0", style: context.textTheme.headline6);
 
   CustomColumn buildBodySection() {
     return CustomColumn(

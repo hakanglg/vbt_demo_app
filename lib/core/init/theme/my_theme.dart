@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vbt_demo_app/core/constants/color/color_constants.dart';
 
-import '../../../feature/home/view_model/home_view_model.dart';
-
 final ThemeData myTheme = ThemeData(
     scaffoldBackgroundColor: ColorConstants.instance.green,
     appBarTheme:
@@ -13,7 +11,7 @@ final ThemeData myTheme = ThemeData(
       headline3:
           TextStyle(color: ColorConstants.instance.white, fontSize: 36.sp),
       headline4:
-          TextStyle(color: ColorConstants.instance.white, fontSize: 36.sp),
+          TextStyle(color: ColorConstants.instance.white, fontSize: 32.sp),
       headline6:
           TextStyle(color: ColorConstants.instance.white, fontSize: 20.sp),
       bodyText1:

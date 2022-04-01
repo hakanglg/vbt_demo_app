@@ -6,6 +6,7 @@ import '../view_model/menu_view_model.dart';
 
 part "menu_string_values.dart";
 
+// ignore: must_be_immutable
 class MenuView extends StatelessWidget with BaseState {
   final _MenuStringValues values = _MenuStringValues();
   final MenuViewModel _model = MenuViewModel();

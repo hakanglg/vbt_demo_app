@@ -5,25 +5,27 @@ import 'package:vbt_demo_app/core/init/theme/my_theme.dart';
 import 'package:vbt_demo_app/feature/home/view_model/home_view_model.dart';
 import 'package:vbt_demo_app/feature/menu/view/menu_view.dart';
 
-import 'feature/widgets/timer/countdown_timer.dart';
+import 'core/constants/app/app_constants.dart';
 
 void main() => runApp(Provider(
       create: (context) => HomeViewModel(),
       child: ScreenUtilInit(
-        designSize: Size(360, 690),
+        designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () => MyApp(),
+        builder: () => const MyApp(),
       ),
     ));
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: myTheme,
-      title: 'VBT DEMO APP',
+      title: ApplicationConstants.APP_TITLE,
       home: MenuView(),
     );
   }

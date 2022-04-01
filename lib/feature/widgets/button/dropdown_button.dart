@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vbt_demo_app/core/base/state/base_state.dart';
 
+// ignore: must_be_immutable
 class CustomDropdownButton extends StatelessWidget with BaseState {
   CustomDropdownButton({Key? key}) : super(key: key);
 
